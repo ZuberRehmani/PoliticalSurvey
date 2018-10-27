@@ -13,6 +13,7 @@
 		047B1D2B2184B5DE00EB8B63 /* PoliticalSurvey.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 047B1D292184B5DE00EB8B63 /* PoliticalSurvey.xcdatamodeld */; };
 		047B1D2D2184B5E000EB8B63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 047B1D2C2184B5E000EB8B63 /* Assets.xcassets */; };
 		047B1D302184B5E000EB8B63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047B1D2E2184B5E000EB8B63 /* LaunchScreen.storyboard */; };
+		3A3A6D477C3BDD6291310774 /* Pods_PoliticalSurvey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F68F928A76448C7A9E9E87 /* Pods_PoliticalSurvey.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		047B1D2C2184B5E000EB8B63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		047B1D2F2184B5E000EB8B63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		047B1D312184B5E000EB8B63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DD0B0807CEE237E35C275F9 /* Pods-PoliticalSurvey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoliticalSurvey.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PoliticalSurvey/Pods-PoliticalSurvey.debug.xcconfig"; sourceTree = "<group>"; };
+		60F68F928A76448C7A9E9E87 /* Pods_PoliticalSurvey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoliticalSurvey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F86EF460862CBC10DAF99F9A /* Pods-PoliticalSurvey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoliticalSurvey.release.xcconfig"; path = "Pods/Target Support Files/Pods-PoliticalSurvey/Pods-PoliticalSurvey.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A3A6D477C3BDD6291310774 /* Pods_PoliticalSurvey.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				047B1D212184B5DE00EB8B63 /* PoliticalSurvey */,
 				047B1D202184B5DE00EB8B63 /* Products */,
+				2F3228A9865D13954A931203 /* Pods */,
+				A63BB025D4C344391B9E6194 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,23 @@
 			path = PoliticalSurvey;
 			sourceTree = "<group>";
 		};
+		2F3228A9865D13954A931203 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4DD0B0807CEE237E35C275F9 /* Pods-PoliticalSurvey.debug.xcconfig */,
+				F86EF460862CBC10DAF99F9A /* Pods-PoliticalSurvey.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A63BB025D4C344391B9E6194 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				60F68F928A76448C7A9E9E87 /* Pods_PoliticalSurvey.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 047B1D342184B5E000EB8B63 /* Build configuration list for PBXNativeTarget "PoliticalSurvey" */;
 			buildPhases = (
+				FD460B84B4EF5D9F180DCDA4 /* [CP] Check Pods Manifest.lock */,
 				047B1D1B2184B5DE00EB8B63 /* Sources */,
 				047B1D1C2184B5DE00EB8B63 /* Frameworks */,
 				047B1D1D2184B5DE00EB8B63 /* Resources */,
+				AEE5FFA4616667F8FF6853DA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +158,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AEE5FFA4616667F8FF6853DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PoliticalSurvey/Pods-PoliticalSurvey-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PoliticalSurvey/Pods-PoliticalSurvey-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD460B84B4EF5D9F180DCDA4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PoliticalSurvey-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		047B1D1B2184B5DE00EB8B63 /* Sources */ = {
@@ -282,6 +355,7 @@
 		};
 		047B1D352184B5E000EB8B63 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DD0B0807CEE237E35C275F9 /* Pods-PoliticalSurvey.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +373,7 @@
 		};
 		047B1D362184B5E000EB8B63 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F86EF460862CBC10DAF99F9A /* Pods-PoliticalSurvey.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
