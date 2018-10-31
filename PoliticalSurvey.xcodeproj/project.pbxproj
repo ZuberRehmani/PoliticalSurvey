@@ -13,6 +13,7 @@
 		047B1D2B2184B5DE00EB8B63 /* PoliticalSurvey.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 047B1D292184B5DE00EB8B63 /* PoliticalSurvey.xcdatamodeld */; };
 		047B1D2D2184B5E000EB8B63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 047B1D2C2184B5E000EB8B63 /* Assets.xcassets */; };
 		047B1D302184B5E000EB8B63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047B1D2E2184B5E000EB8B63 /* LaunchScreen.storyboard */; };
+		04A6856A218759D7000F8318 /* SurveyQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A68569218759D7000F8318 /* SurveyQuestionViewController.swift */; };
 		3A3A6D477C3BDD6291310774 /* Pods_PoliticalSurvey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F68F928A76448C7A9E9E87 /* Pods_PoliticalSurvey.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		047B1D2C2184B5E000EB8B63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		047B1D2F2184B5E000EB8B63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		047B1D312184B5E000EB8B63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04A68569218759D7000F8318 /* SurveyQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestionViewController.swift; sourceTree = "<group>"; };
 		4DD0B0807CEE237E35C275F9 /* Pods-PoliticalSurvey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoliticalSurvey.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PoliticalSurvey/Pods-PoliticalSurvey.debug.xcconfig"; sourceTree = "<group>"; };
 		60F68F928A76448C7A9E9E87 /* Pods_PoliticalSurvey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoliticalSurvey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F86EF460862CBC10DAF99F9A /* Pods-PoliticalSurvey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoliticalSurvey.release.xcconfig"; path = "Pods/Target Support Files/Pods-PoliticalSurvey/Pods-PoliticalSurvey.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				047B1D222184B5DE00EB8B63 /* AppDelegate.swift */,
 				047B1D242184B5DE00EB8B63 /* ViewController.swift */,
 				047B1D262184B5DE00EB8B63 /* Main.storyboard */,
+				04A68569218759D7000F8318 /* SurveyQuestionViewController.swift */,
 				047B1D2C2184B5E000EB8B63 /* Assets.xcassets */,
 				047B1D2E2184B5E000EB8B63 /* LaunchScreen.storyboard */,
 				047B1D312184B5E000EB8B63 /* Info.plist */,
@@ -165,15 +168,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PoliticalSurvey/Pods-PoliticalSurvey-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
@@ -187,15 +186,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-PoliticalSurvey-checkManifestLockResult.txt",
 			);
@@ -213,6 +208,7 @@
 			files = (
 				047B1D252184B5DE00EB8B63 /* ViewController.swift in Sources */,
 				047B1D232184B5DE00EB8B63 /* AppDelegate.swift in Sources */,
+				04A6856A218759D7000F8318 /* SurveyQuestionViewController.swift in Sources */,
 				047B1D2B2184B5DE00EB8B63 /* PoliticalSurvey.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
