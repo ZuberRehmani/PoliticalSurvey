@@ -10,16 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
    
+    enum SelectedPicker {
+        case country
+        case province
+        case gender
+    }
+    
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtPhone: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtCountry: UITextField!
     
     @IBOutlet weak var pickerViewBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var genderPickerView: UIView!
+    @IBOutlet weak var viewPicker: UIView!
     
-    @IBOutlet weak var selectYourPervince: UITextField!
-    
+    @IBOutlet weak var txtProvince: UITextField!
     @IBOutlet weak var txtGender: UITextField!
     @IBOutlet weak var genderPicker: UIPickerView!
     
@@ -27,11 +32,11 @@ class ViewController: UIViewController {
     
     var whichPickerClicked = "Gender"
     
-    
     var arrGender = ["Male","Female"]
     var arrCountry = ["India","London"]
     var arrPervince = ["Madhya Pardesh","Uttar Pardesh","Aandhra Pardesh"]
     
+    var selectedPickerType: SelectedPicker = .gender
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +59,7 @@ class ViewController: UIViewController {
            
         }
         else {
-            pickerViewBottomConstraint.constant = -(genderPickerView.frame.size.height)
+            pickerViewBottomConstraint.constant = -(viewPicker.frame.size.height)
         }
     }
 
@@ -78,6 +83,8 @@ class ViewController: UIViewController {
     @IBAction func countryButtonTapped(_ sender: UIButton) {
         
         whichPickerClicked = "Country"
+        
+        selectedPickerType = .country
         showHideGenderPicker(isShow: true)
         takeaSurveyButtonOutlet.isHidden = true
         //countryPicker.isHidden = false
@@ -102,6 +109,16 @@ extension ViewController : UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
+        switch selectedPickerType {
+        case .country:
+            print("Selected picker is country picker")
+        case .province:
+            print("Selected picker is province picker")
+        case .gender:
+            print("Selected picker is gender picker")
+
+        }
+        
         if whichPickerClicked == "Gender" {
             
         txtGender.text = arrGender[row]
@@ -114,7 +131,7 @@ extension ViewController : UIPickerViewDelegate {
         }
         if whichPickerClicked == "Pervince" {
             
-            selectYourPervince.text = arrPervince[row]
+            txtProvince.text = arrPervince[row]
         }
         
     }
