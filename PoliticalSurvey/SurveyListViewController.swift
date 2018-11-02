@@ -10,8 +10,9 @@ import UIKit
 
 class SurveyListViewController: UIViewController {
     
+    @IBOutlet weak var tblSurvey: UITableView!
     var arrSurveyModel = [SurveyModel]()
-    
+
     let objSurveyModel1 = SurveyModel(surveyNumber: 1, question: "Who is your favourite Polition", date: "15-12-2015", country: "India", province: "MP")
     let objSurveyModel2 = SurveyModel(surveyNumber: 2, question: "Who is your favourite Party", date: "16-12-2015", country: "London", province: "AP")
     let objSurveyModel3 = SurveyModel(surveyNumber: 3, question: "Who is your favourite Polition", date: "17-12-2015", country: "India", province: "GJ")
@@ -41,7 +42,8 @@ extension SurveyListViewController : UITableViewDataSource {
         cell.lblDate.text = "Date :" + arrSurveyModel[indexPath.row].date
         cell.lblCountry.text = "Country :" + arrSurveyModel[indexPath.row].country
         cell.lblProvince.text = "Province :" + arrSurveyModel[indexPath.row].province
-
+        cell.selectionStyle = UITableViewCellSelectionStyle.gray
+    
         return cell
     }
     
