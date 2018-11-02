@@ -8,6 +8,10 @@
 
 import UIKit
 
+//protocol SignupFormDelegate {
+//    func singupField(name: String, mobile: String, email: String, gender: String, country: String, province: String )
+//}
+
 class ViewController: UIViewController {
    
     enum SelectedPicker {
@@ -16,25 +20,23 @@ class ViewController: UIViewController {
         case gender
     }
     
+    //var singupFormFieldDelegate: SignupFormDelegate?
+    
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtPhone: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtCountry: UITextField!
-    
-    @IBOutlet weak var pickerViewBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var viewPicker: UIView!
-    
     @IBOutlet weak var txtProvince: UITextField!
     @IBOutlet weak var txtGender: UITextField!
-    @IBOutlet weak var genderPicker: UIPickerView!
-    
+    @IBOutlet weak var pickerViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var viewPicker: UIView!
+    @IBOutlet weak var commonPicker: UIPickerView!
     @IBOutlet weak var takeaSurveyButtonOutlet: UIButton!
     
-    var whichPickerClicked = "Gender"
     
     var arrGender = ["Male","Female"]
     var arrCountry = ["India","London"]
-    var arrPervince = ["Madhya Pardesh","Uttar Pardesh","Aandhra Pardesh"]
+    var arrProvince = ["Madhya Pardesh","Uttar Pardesh","Aandhra Pardesh"]
     
     var selectedPickerType: SelectedPicker = .gender
 
@@ -44,19 +46,19 @@ class ViewController: UIViewController {
     }
 
     @IBAction func selectGenderTapped(_ sender: UIButton) {
-        whichPickerClicked = "Gender"
+       
+        selectedPickerType = .gender
        takeaSurveyButtonOutlet.isHidden = true
-       showHideGenderPicker(isShow: true)
+       showAndHideCommonPicker(isShow: true)
         
     }
 
     
-    func showHideGenderPicker(isShow: Bool) {
+    func showAndHideCommonPicker(isShow: Bool) {
         
         if isShow {
-             genderPicker.reloadAllComponents()
+             commonPicker.reloadAllComponents()
             pickerViewBottomConstraint.constant = 0
-           
         }
         else {
             pickerViewBottomConstraint.constant = -(viewPicker.frame.size.height)
@@ -64,17 +66,19 @@ class ViewController: UIViewController {
     }
 
     
-    @IBAction func genderCancelTapped(_ sender: UIButton) {
-       
-        showHideGenderPicker(isShow: false)
-        takeaSurveyButtonOutlet.isHidden = false
-        //genderPicker.isHidden = true
-    }
-    @IBAction func genderDoneTapped(_ sender: UIButton) {
+    @IBAction func commonPickerCancelTapped(_ sender: UIButton) {
         
-        showHideGenderPicker(isShow: false)
+        showAndHideCommonPicker(isShow: false)
         takeaSurveyButtonOutlet.isHidden = false
-        //genderPicker.isHidden = true
+        
+    }
+    
+    
+    @IBAction func commonPickerDoneTapped(_ sender: UIButton) {
+        
+        showAndHideCommonPicker(isShow: false)
+        takeaSurveyButtonOutlet.isHidden = false
+    
     }
     
     
@@ -82,24 +86,25 @@ class ViewController: UIViewController {
     
     @IBAction func countryButtonTapped(_ sender: UIButton) {
         
-        whichPickerClicked = "Country"
-        
         selectedPickerType = .country
-        showHideGenderPicker(isShow: true)
+        showAndHideCommonPicker(isShow: true)
         takeaSurveyButtonOutlet.isHidden = true
-        //countryPicker.isHidden = false
+        
     }
     
-    @IBAction func pervinceButtonTapped(_ sender: UIButton) {
+    @IBAction func provinceButtonTapped(_ sender: UIButton) {
         
-        whichPickerClicked = "Pervince"
-        showHideGenderPicker(isShow: true)
+        selectedPickerType = .province
+        showAndHideCommonPicker(isShow: true)
         takeaSurveyButtonOutlet.isHidden = true
+        
     }
     
     
     @IBAction func takeaSurveyTapped(_ sender: UIButton) {
         
+//        singupFormFieldDelegate?.singupField(name: txtName.text!, mobile: txtPhone.text!, email: txtEmail.text!, gender: txtGender.text!, country: txtCountry.text!, province: txtProvince.text!)
+
         let vc = storyboard?.instantiateViewController(withIdentifier: "SurveyQuestionViewController") as! SurveyQuestionViewController
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -110,71 +115,46 @@ extension ViewController : UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         switch selectedPickerType {
-        case .country:
-            print("Selected picker is country picker")
-        case .province:
-            print("Selected picker is province picker")
         case .gender:
-            print("Selected picker is gender picker")
-
-        }
-        
-        if whichPickerClicked == "Gender" {
-            
-        txtGender.text = arrGender[row]
-       
-        }
-        if whichPickerClicked == "Country" {
-
+            txtGender.text = arrGender[row]
+        case .country:
             txtCountry.text = arrCountry[row]
-
+        case .province:
+            txtProvince.text = arrProvince[row]
         }
-        if whichPickerClicked == "Pervince" {
-            
-            txtProvince.text = arrPervince[row]
-        }
-        
     }
-    
-
 }
+
+
 extension ViewController : UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-       if whichPickerClicked == "Gender" {
-        return arrGender.count
-        }
-        if whichPickerClicked == "Country" {
-        return arrCountry.count
-        }
-        if whichPickerClicked == "Pervince" {
+       
+        switch selectedPickerType {
             
-            return arrPervince.count
+        case .gender :
+            return arrGender.count
+        case .country:
+            return arrCountry.count
+        case .province:
+            return arrProvince.count
         }
-        
-        return 0
-        
         
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if whichPickerClicked == "Gender" {
-
-        return arrGender[row]
-        }
-        if whichPickerClicked == "Country" {
-    
+        
+        switch selectedPickerType {
+        case .gender:
+            return arrGender[row]
+        case .country:
             return arrCountry[row]
-            
-        }
-        if whichPickerClicked == "Pervince" {
-            
-            return arrPervince[row]
+        case .province:
+            return arrProvince[row]
         }
         
-        return ""
     }
 }

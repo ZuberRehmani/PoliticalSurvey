@@ -37,7 +37,6 @@ extension SurveyListViewController : UITableViewDataSource {
         
         
         cell.lblSurveyNumber.text = "Survey No." + "\(arrSurveyModel[indexPath.row].surveyNumber)"
-        
         cell.lblQuestion.text = "Question :" + arrSurveyModel[indexPath.row].question
         cell.lblDate.text = "Date :" + arrSurveyModel[indexPath.row].date
         cell.lblCountry.text = "Country :" + arrSurveyModel[indexPath.row].country

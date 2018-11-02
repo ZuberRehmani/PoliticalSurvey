@@ -11,6 +11,7 @@ import UIKit
 class SurveyQuestionViewController: UIViewController {
 
    
+   
     @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var image2: UIImageView!
     @IBOutlet weak var image3: UIImageView!
@@ -47,7 +48,9 @@ class SurveyQuestionViewController: UIViewController {
             
             alert.dismiss(animated: true, completion: nil)
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "SurveyListViewController") as! SurveyListViewController
+            
             self.navigationController?.pushViewController(vc, animated: true)
+            
 
         }))
        self.present(alert, animated: true, completion: nil)
