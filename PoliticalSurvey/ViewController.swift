@@ -8,9 +8,7 @@
 
 import UIKit
 
-//protocol SignupFormDelegate {
-//    func singupField(name: String, mobile: String, email: String, gender: String, country: String, province: String )
-//}
+
 
 class ViewController: UIViewController {
    
@@ -20,7 +18,8 @@ class ViewController: UIViewController {
         case gender
     }
     
-    //var singupFormFieldDelegate: SignupFormDelegate?
+    @IBOutlet weak var viewTakeASurvey: UIView!
+   
     
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtPhone: UITextField!
@@ -35,20 +34,30 @@ class ViewController: UIViewController {
     
     
     var arrGender = ["Male","Female"]
-    var arrCountry = ["India","London"]
+   // var arrCountry = ["India","London"]
     var arrProvince = ["Madhya Pardesh","Uttar Pardesh","Aandhra Pardesh"]
+    
+    var arrCountryModel = [CountryModel]()
+    
+    var countryModelObject1 = CountryModel(countryID: "1", countryName: "India")
+    var countryModelObject2 = CountryModel(countryID: "2", countryName: "USA")
+    var countryModelObject3 = CountryModel(countryID: "3", countryName: "China")
     
     var selectedPickerType: SelectedPicker = .gender
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        arrCountryModel.append(countryModelObject1)
+        arrCountryModel.append(countryModelObject2)
+        arrCountryModel.append(countryModelObject3)
     }
 
     @IBAction func selectGenderTapped(_ sender: UIButton) {
        
         selectedPickerType = .gender
-       takeaSurveyButtonOutlet.isHidden = true
+        viewTakeASurvey.isHidden = true
+      // takeaSurveyButtonOutlet.isHidden = true
        showAndHideCommonPicker(isShow: true)
         
     }
@@ -69,7 +78,8 @@ class ViewController: UIViewController {
     @IBAction func commonPickerCancelTapped(_ sender: UIButton) {
         
         showAndHideCommonPicker(isShow: false)
-        takeaSurveyButtonOutlet.isHidden = false
+        viewTakeASurvey.isHidden = false
+        //takeaSurveyButtonOutlet.isHidden = false
         
     }
     
@@ -77,7 +87,8 @@ class ViewController: UIViewController {
     @IBAction func commonPickerDoneTapped(_ sender: UIButton) {
         
         showAndHideCommonPicker(isShow: false)
-        takeaSurveyButtonOutlet.isHidden = false
+       //viewTakeASurvey.isHidden = false
+        //takeaSurveyButtonOutlet.isHidden = false
     
     }
     
@@ -87,8 +98,10 @@ class ViewController: UIViewController {
     @IBAction func countryButtonTapped(_ sender: UIButton) {
         
         selectedPickerType = .country
+        //viewTakeASurvey.isHidden = false
         showAndHideCommonPicker(isShow: true)
-        takeaSurveyButtonOutlet.isHidden = true
+       
+       // takeaSurveyButtonOutlet.isHidden = true
         
     }
     
@@ -96,7 +109,8 @@ class ViewController: UIViewController {
         
         selectedPickerType = .province
         showAndHideCommonPicker(isShow: true)
-        takeaSurveyButtonOutlet.isHidden = true
+       // viewTakeASurvey.isHidden = false
+       // takeaSurveyButtonOutlet.isHidden = true
         
     }
     
@@ -104,9 +118,47 @@ class ViewController: UIViewController {
     @IBAction func takeaSurveyTapped(_ sender: UIButton) {
         
 //        singupFormFieldDelegate?.singupField(name: txtName.text!, mobile: txtPhone.text!, email: txtEmail.text!, gender: txtGender.text!, country: txtCountry.text!, province: txtProvince.text!)
-
+       let isFill = checkValidation()
+        
+        if isFill {
         let vc = storyboard?.instantiateViewController(withIdentifier: "SurveyQuestionViewController") as! SurveyQuestionViewController
         navigationController?.pushViewController(vc, animated: true)
+        }
+        else{
+            
+            print("Please enter all field")
+            
+            let alert = UIAlertController(title: "Alert!", message: "Please fill the all fields", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func checkValidation() -> Bool{
+        
+        if txtName.text?.isEmpty == true {
+            return false
+        }
+        if txtPhone.text?.isEmpty == true {
+            return false
+        }
+        if txtEmail.text?.isEmpty == true {
+            return false
+        }
+        if  txtGender.text?.isEmpty == true {
+            return false
+        }
+        if txtCountry.text?.isEmpty == true {
+            return false
+        }
+        if txtProvince.text?.isEmpty == true {
+            return false
+        }
+        
+        return true
     }
     
 }
@@ -118,7 +170,7 @@ extension ViewController : UIPickerViewDelegate {
         case .gender:
             txtGender.text = arrGender[row]
         case .country:
-            txtCountry.text = arrCountry[row]
+            txtCountry.text = arrCountryModel[row].countryName
         case .province:
             txtProvince.text = arrProvince[row]
         }
@@ -138,7 +190,7 @@ extension ViewController : UIPickerViewDataSource {
         case .gender :
             return arrGender.count
         case .country:
-            return arrCountry.count
+            return arrCountryModel.count
         case .province:
             return arrProvince.count
         }
@@ -151,7 +203,7 @@ extension ViewController : UIPickerViewDataSource {
         case .gender:
             return arrGender[row]
         case .country:
-            return arrCountry[row]
+            return arrCountryModel[row].countryName
         case .province:
             return arrProvince[row]
         }
