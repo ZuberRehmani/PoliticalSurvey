@@ -15,6 +15,11 @@
 		047B1D302184B5E000EB8B63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047B1D2E2184B5E000EB8B63 /* LaunchScreen.storyboard */; };
 		04875CA1218A091100C022F3 /* SurveyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04875CA0218A091100C022F3 /* SurveyListViewController.swift */; };
 		04A6856A218759D7000F8318 /* SurveyQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A68569218759D7000F8318 /* SurveyQuestionViewController.swift */; };
+		04B1C5C32192A61600D27DEB /* Survey+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1C5C12192A61600D27DEB /* Survey+CoreDataClass.swift */; };
+		04B1C5C42192A61600D27DEB /* Survey+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1C5C22192A61600D27DEB /* Survey+CoreDataProperties.swift */; };
+		04B1C5C62197119D00D27DEB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1C5C52197119D00D27DEB /* UserModel.swift */; };
+		04B1C5C9219713C500D27DEB /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1C5C7219713C500D27DEB /* User+CoreDataClass.swift */; };
+		04B1C5CA219713C500D27DEB /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1C5C8219713C500D27DEB /* User+CoreDataProperties.swift */; };
 		04BC27CD218B4C1700DCB664 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BC27CC218B4C1700DCB664 /* TableViewCell.swift */; };
 		04BC27CF218B4C7100DCB664 /* SurveyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BC27CE218B4C7100DCB664 /* SurveyModel.swift */; };
 		04F000C62190AC9A001C4B3B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F000C32190AC99001C4B3B /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
@@ -34,9 +39,14 @@
 		047B1D312184B5E000EB8B63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04875CA0218A091100C022F3 /* SurveyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListViewController.swift; sourceTree = "<group>"; };
 		04A68569218759D7000F8318 /* SurveyQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestionViewController.swift; sourceTree = "<group>"; };
+		04B1C5C12192A61600D27DEB /* Survey+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Survey+CoreDataClass.swift"; sourceTree = "<group>"; };
+		04B1C5C22192A61600D27DEB /* Survey+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Survey+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		04B1C5C52197119D00D27DEB /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		04B1C5C7219713C500D27DEB /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		04B1C5C8219713C500D27DEB /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		04B22D17219C6B0D00A330F7 /* PoliticalSurvey-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PoliticalSurvey-Bridging-Header.h"; sourceTree = "<group>"; };
 		04BC27CC218B4C1700DCB664 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		04BC27CE218B4C7100DCB664 /* SurveyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyModel.swift; sourceTree = "<group>"; };
-		04F000AE21909538001C4B3B /* PoliticalSurvey-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PoliticalSurvey-Bridging-Header.h"; sourceTree = "<group>"; };
 		04F000C22190AC99001C4B3B /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		04F000C32190AC99001C4B3B /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		04F000C42190AC99001C4B3B /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
@@ -80,6 +90,7 @@
 		047B1D212184B5DE00EB8B63 /* PoliticalSurvey */ = {
 			isa = PBXGroup;
 			children = (
+				04B1C5C02192A58F00D27DEB /* Coredata */,
 				04F000C12190AC7B001C4B3B /* TPKeyboardAvoiding */,
 				047B1D222184B5DE00EB8B63 /* AppDelegate.swift */,
 				047B1D242184B5DE00EB8B63 /* ViewController.swift */,
@@ -87,15 +98,27 @@
 				04875CA0218A091100C022F3 /* SurveyListViewController.swift */,
 				04BC27CC218B4C1700DCB664 /* TableViewCell.swift */,
 				04BC27CE218B4C7100DCB664 /* SurveyModel.swift */,
+				04B1C5C52197119D00D27DEB /* UserModel.swift */,
 				04F000C82190B3B4001C4B3B /* CountryModel.swift */,
 				04A68569218759D7000F8318 /* SurveyQuestionViewController.swift */,
 				047B1D2C2184B5E000EB8B63 /* Assets.xcassets */,
 				047B1D2E2184B5E000EB8B63 /* LaunchScreen.storyboard */,
 				047B1D312184B5E000EB8B63 /* Info.plist */,
 				047B1D292184B5DE00EB8B63 /* PoliticalSurvey.xcdatamodeld */,
-				04F000AE21909538001C4B3B /* PoliticalSurvey-Bridging-Header.h */,
+				04B22D17219C6B0D00A330F7 /* PoliticalSurvey-Bridging-Header.h */,
 			);
 			path = PoliticalSurvey;
+			sourceTree = "<group>";
+		};
+		04B1C5C02192A58F00D27DEB /* Coredata */ = {
+			isa = PBXGroup;
+			children = (
+				04B1C5C7219713C500D27DEB /* User+CoreDataClass.swift */,
+				04B1C5C8219713C500D27DEB /* User+CoreDataProperties.swift */,
+				04B1C5C12192A61600D27DEB /* Survey+CoreDataClass.swift */,
+				04B1C5C22192A61600D27DEB /* Survey+CoreDataProperties.swift */,
+			);
+			path = Coredata;
 			sourceTree = "<group>";
 		};
 		04F000C12190AC7B001C4B3B /* TPKeyboardAvoiding */ = {
@@ -240,15 +263,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				047B1D252184B5DE00EB8B63 /* ViewController.swift in Sources */,
+				04B1C5C32192A61600D27DEB /* Survey+CoreDataClass.swift in Sources */,
 				04875CA1218A091100C022F3 /* SurveyListViewController.swift in Sources */,
 				047B1D232184B5DE00EB8B63 /* AppDelegate.swift in Sources */,
 				04BC27CD218B4C1700DCB664 /* TableViewCell.swift in Sources */,
+				04B1C5C62197119D00D27DEB /* UserModel.swift in Sources */,
+				04B1C5C9219713C500D27DEB /* User+CoreDataClass.swift in Sources */,
 				04F000C92190B3B4001C4B3B /* CountryModel.swift in Sources */,
+				04B1C5CA219713C500D27DEB /* User+CoreDataProperties.swift in Sources */,
 				04BC27CF218B4C7100DCB664 /* SurveyModel.swift in Sources */,
 				04F000C62190AC9A001C4B3B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				04F000C72190AC9A001C4B3B /* TPKeyboardAvoidingScrollView.m in Sources */,
 				04A6856A218759D7000F8318 /* SurveyQuestionViewController.swift in Sources */,
 				047B1D2B2184B5DE00EB8B63 /* PoliticalSurvey.xcdatamodeld in Sources */,
+				04B1C5C42192A61600D27DEB /* Survey+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +428,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = test.PoliticalSurvey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PoliticalSurvey/PoliticalSurvey-Bridging-Header.h";
@@ -421,9 +450,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = test.PoliticalSurvey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PoliticalSurvey/PoliticalSurvey-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

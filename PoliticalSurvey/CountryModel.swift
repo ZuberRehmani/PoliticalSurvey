@@ -10,10 +10,10 @@ import Foundation
 
 class CountryModel {
     
-    var countryID: String
+    var countryID: Int16
     var countryName: String
     
-    init(countryID: String, countryName: String){
+    init(countryID: Int16, countryName: String){
         
        self.countryID = countryID
        self.countryName = countryName

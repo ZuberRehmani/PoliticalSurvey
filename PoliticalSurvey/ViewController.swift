@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreData
 
 
 class ViewController: UIViewController {
@@ -39,11 +39,18 @@ class ViewController: UIViewController {
     
     var arrCountryModel = [CountryModel]()
     
-    var countryModelObject1 = CountryModel(countryID: "1", countryName: "India")
-    var countryModelObject2 = CountryModel(countryID: "2", countryName: "USA")
-    var countryModelObject3 = CountryModel(countryID: "3", countryName: "China")
+    var countryModelObject1 = CountryModel(countryID: 1, countryName: "India")
+    var countryModelObject2 = CountryModel(countryID: 2, countryName: "USA")
+    var countryModelObject3 = CountryModel(countryID: 3, countryName: "China")
     
     var selectedPickerType: SelectedPicker = .gender
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    var selectedGender:String?
+    var selectedCountryName:String?
+    var selectedProvince:String?
+    var selectedCountryId:Int16?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +63,7 @@ class ViewController: UIViewController {
     @IBAction func selectGenderTapped(_ sender: UIButton) {
        
         selectedPickerType = .gender
-        viewTakeASurvey.isHidden = true
+        //viewTakeASurvey.isHidden = true
       // takeaSurveyButtonOutlet.isHidden = true
        showAndHideCommonPicker(isShow: true)
         
@@ -78,7 +85,7 @@ class ViewController: UIViewController {
     @IBAction func commonPickerCancelTapped(_ sender: UIButton) {
         
         showAndHideCommonPicker(isShow: false)
-        viewTakeASurvey.isHidden = false
+        //viewTakeASurvey.isHidden = false
         //takeaSurveyButtonOutlet.isHidden = false
         
     }
@@ -100,7 +107,6 @@ class ViewController: UIViewController {
         selectedPickerType = .country
         //viewTakeASurvey.isHidden = false
         showAndHideCommonPicker(isShow: true)
-       
        // takeaSurveyButtonOutlet.isHidden = true
         
     }
@@ -117,10 +123,12 @@ class ViewController: UIViewController {
     
     @IBAction func takeaSurveyTapped(_ sender: UIButton) {
         
-//        singupFormFieldDelegate?.singupField(name: txtName.text!, mobile: txtPhone.text!, email: txtEmail.text!, gender: txtGender.text!, country: txtCountry.text!, province: txtProvince.text!)
+
        let isFill = checkValidation()
         
         if isFill {
+            saveDataInDatabase()
+           
         let vc = storyboard?.instantiateViewController(withIdentifier: "SurveyQuestionViewController") as! SurveyQuestionViewController
         navigationController?.pushViewController(vc, animated: true)
         }
@@ -161,6 +169,30 @@ class ViewController: UIViewController {
         return true
     }
     
+    func saveDataInDatabase(){
+        
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let userModelObject = User(context: context)
+        userModelObject.name = txtName.text!
+        userModelObject.phone = txtPhone.text!
+        userModelObject.email = txtEmail.text!
+        userModelObject.gender = selectedGender
+        userModelObject.countryName = selectedCountryName
+        userModelObject.countryId = selectedCountryId!
+        userModelObject.province = selectedProvince
+        
+        
+        do {
+            try context.save()
+            print("Data saved succesfully")
+        }
+        catch let error {
+            print("An error accured saving user data context \(error.localizedDescription)")
+        }
+        
+    }
+    
 }
 extension ViewController : UIPickerViewDelegate {
     
@@ -169,10 +201,14 @@ extension ViewController : UIPickerViewDelegate {
         switch selectedPickerType {
         case .gender:
             txtGender.text = arrGender[row]
+            selectedGender = arrGender[row]
         case .country:
             txtCountry.text = arrCountryModel[row].countryName
+            selectedCountryName = arrCountryModel[row].countryName
+            selectedCountryId = arrCountryModel[row].countryID
         case .province:
             txtProvince.text = arrProvince[row]
+            selectedProvince = arrProvince[row]
         }
     }
 }
