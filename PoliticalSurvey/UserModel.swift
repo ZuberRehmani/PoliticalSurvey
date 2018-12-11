@@ -7,23 +7,88 @@
 //
 
 import Foundation
-class UserModel {
+struct RegistrationRequestModel: Codable{
     
-    var name: String
-    var phone: String
-    var email: String
-    var gender: String
-    var countryName: String
-    var countryId: Int16
-    var province: String
-    
-    init(name: String, phone: String, email: String, gender:String, countryName:String, countryId:Int16, province:String) {
-        self.name = name
-        self.phone = phone
-        self.email = email
-        self.gender = gender
-        self.countryName = countryName
-        self.countryId = countryId
-        self.province = province
-    }
+    var fullName: String
+    var emailAddress: String
+    var contactNo: String
+    var gender: Int
+    var countryId: Int
+    var provienceId: Int
+    var deviceToken: String
+}
+
+struct UserModel: Decodable {
+        var userData: Users?
+        var success: Bool?
+        var token: String?
+        var message: String?
+}
+
+struct Users: Decodable {
+        var userId: Int?
+        var fullName: String?
+        var emailAddress: String?
+        var gender: Int?
+        var contactNo: String?
+        var countryId: Int?
+        var countryName: String?
+        var provienceId: Int?
+        var provienceName: String?
+}
+
+struct LoginRequest: Codable {
+    var emailAddress: String
+    var contactNo: String
+    var password: String
+    var deviceToken: String
+}
+
+struct loginModel: Decodable {
+    var message: String?
+    var userData: LoginUser?
+    var success: Bool?
+    var token: String?
+}
+struct LoginUser: Decodable {
+    var userId: String?
+    var fullName: String?
+    var emailAddress: String?
+    var contactNo: String?
+    var gender: String?
+    var countryId: String?
+    var countryName: String?
+    var provienceId: String?
+    var provienceName: String?
+}
+
+struct SurveyRequest:Codable {
+    var token: String
+    var userId: String
+    var limit: Int
+    var page: Int
+}
+struct SurveyRequestModel: Decodable {
+    var success: Bool
+    var page: Int
+    var limit: Int
+    var totalPages: Int
+    var nextPage: Int
+    var totalRecordsFound: Int?
+    var survey:[Surveys]?
+}
+struct Surveys: Decodable {
+    var surveyId:String
+    var question:String
+    //var image:Any?
+    var categoryName:String
+    var countryName:String
+    var selectionType:String?
+    var option:[Options]
+}
+struct Options: Decodable {
+    var optionId: Int?
+    var optionTitle: String?
+    var altInfo: String?
+    var optionImage: String?
 }

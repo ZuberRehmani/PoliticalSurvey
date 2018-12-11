@@ -23,9 +23,9 @@ class SurveyListViewController: UIViewController {
         arrSurveyModel.append(objSurveyModel1)
         arrSurveyModel.append(objSurveyModel2)
         arrSurveyModel.append(objSurveyModel3)
-        // Do any additional setup after loading the view.
+      
     }
-
+    
 }
 
 extension SurveyListViewController : UITableViewDataSource {
@@ -43,7 +43,7 @@ extension SurveyListViewController : UITableViewDataSource {
         cell.lblCountry.text = "Country :" + arrSurveyModel[indexPath.row].country
         cell.lblProvince.text = "Province :" + arrSurveyModel[indexPath.row].province
         cell.selectionStyle = UITableViewCellSelectionStyle.gray
-    
+       
         return cell
     }
     
